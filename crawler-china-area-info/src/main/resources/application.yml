@@ -1,0 +1,36 @@
+spring:
+  application:
+          name: crawler_provider
+#  boot:
+#    admin:
+#        url: http://localhost:10000 
+  datasource:
+    url: jdbc:mysql://*******/Crawler?useUnicode=true&characterEncoding=utf8&useSSL=false
+    driverClassName: com.mysql.jdbc.Driver
+    username: young
+    password: young
+mybatis:
+     mapperLocations: classpath*:mappers/*Mapper.xml
+     typeAliasesPackage: com.young.okhhtp.entity
+     configuration:
+              mapUnderscoreToCamelCase: true
+#集成Tk
+# MyBatis common mapper
+mapper:
+  mappers: tk.mybatis.mapper.common.Mapper
+  not-empty: false
+  identity: MYSQL
+# ----------------------------------------
+# PAGEHELPER  PROPERTIES
+# ----------------------------------------
+
+# MyBatis pagehelper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+#关闭安全验证
+management:
+     security:
+        enabled: false

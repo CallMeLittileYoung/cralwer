@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.young.okhhtp.mapper.TblChinaAreaInfoMapper">
+
+ <insert id="insertByBatch" parameterType="list"> 
+	INSERT INTO tbl_china_area_info (
+		NAME,
+		parent_id,
+		LEVEL,
+		path_name,
+		adc_code
+	)
+	VALUES
+	 <foreach collection="list" item="obj"  separator=",">
+    	(#{obj.name},
+    	 #{obj.parentId},
+    	 #{obj.level},
+    	 #{obj.pathName},
+    	 #{obj.adcCode}
+    	)
+    </foreach>
+</insert>
+
+<select id="selectAllCounts" resultType="long">
+	SELECT
+		COUNT(id)
+	FROM
+		tbl_china_area_info
+</select>
+</mapper>

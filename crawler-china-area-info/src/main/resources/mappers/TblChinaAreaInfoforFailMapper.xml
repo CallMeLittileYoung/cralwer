@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.young.okhhtp.mapper.TblChinaAreaInfoFailMapper">
+	
+	<select id="selectUnFetched"     resultType="com.young.okhhtp.entity.TblChinaAreaInfoForFai">
+	SELECT
+		*
+	FROM
+		tbl_china_area_info_fail
+	WHERE
+		flag = '0'		
+	</select>
+	
+	<delete id="deleteAll">
+	DELETE
+	FROM
+		tbl_china_area_info_fail
+	</delete>
+</mapper>
